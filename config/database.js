@@ -8,6 +8,7 @@ module.exports = {
     password: process.env.DB_PASSWORD || null,
     database: process.env.DB_DATABASE || "parkingdb_dev",
     host: process.env.DB_HOST || "127.0.0.1",
+    port: process.env.DB_PORT || 3306,
     dialect: "mysql",
   },
   test: {
@@ -15,6 +16,7 @@ module.exports = {
     password: process.env.DB_PASSWORD || null,
     database: process.env.DB_DATABASE || "parkingdb_test",
     host: process.env.DB_HOST || "127.0.0.1",
+    port: process.env.DB_PORT || 3306,
     dialect: "mysql",
   },
   production: {
@@ -22,6 +24,7 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: "mysql",
     logging: false,
   },
