@@ -33,4 +33,4 @@ ENV TOKEN_SECRET=$TOKEN_SECRET
 EXPOSE 4000
 
 # Comando para iniciar la aplicación
-CMD ["npm", "run", "dev"]
+CMD ["node","src/app.js"]
