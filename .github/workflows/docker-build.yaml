@@ -30,7 +30,7 @@ jobs:
             --build-arg DB_USER=${{ secrets.DB_USER }} \
             --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
             --build-arg TOKEN_SECRET=${{ secrets.TOKEN_SECRET }} \
-            -t your-backend-image-name .
+            -t backend-taller3 .
 
       # 4. Subir la imagen a DockerHub (opcional)
       - name: Push Docker Image
