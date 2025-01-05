@@ -2,7 +2,6 @@
   "name": "parknmove-backend",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "babel-node": "babel-node --presets=@babel/preset-env",
     "build": "babel src/index.js -d dist",

@@ -4,9 +4,16 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --production && npm install -g sequelize-cli
+RUN npm install --production
+RUN npm install -g sequelize-cli
 
 COPY . .
+
+# Instala las dependencias de desarrollo, necesarias para Babel
+RUN npm install --only=dev
+
+# Construye el código usando Babel
+RUN npm run build
 
 ARG DB_HOST
 ARG DB_PORT
@@ -24,4 +31,4 @@ ENV TOKEN_SECRET=$TOKEN_SECRET
 
 EXPOSE 4000
 
-CMD ["node", "src/index.js"]
+CMD ["node", "dist/index.js"]
