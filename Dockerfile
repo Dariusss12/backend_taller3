@@ -1,8 +1,6 @@
 # Usa una imagen base de Node.js
 FROM node:18.18.0
 
-ENV NODE_ENV=production
-
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
