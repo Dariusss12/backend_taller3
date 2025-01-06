@@ -9,6 +9,7 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: "mysql",
     operatorsAliases: false,
     retry: {
@@ -18,13 +19,12 @@ const sequelize = new Sequelize(
         Sequelize.TimeoutError,
         Sequelize.ConnectionRefusedError,
       ],
-      max: 25,
+      max: 5,
       backoffBase: 5000,
       backoffExponent: 1.5,
     },
   }
 );
-
 
 sequelize
   .authenticate()
@@ -45,7 +45,7 @@ db.parking_user = require("./ParkingUserModel.js")(sequelize, DataTypes);
 db.user = require("./UserModel.js")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
-  console.log("Drop and re-sync db.");
+  console.log("Database synchronized.");
 });
 
 db.user.hasOne(db.parking, {
